@@ -314,29 +314,29 @@
                         </Style.Triggers>
                     </Style>
                 </WrapPanel.Resources>
-                <Button x:Name="ShowNew" Content="new" Style="{StaticResource DefaultButton}">
+                <Button x:Name="ShowNew" Content="新建" Style="{StaticResource DefaultButton}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <ei:GoToStateAction StateName="NewState" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button x:Name="ShowOpen" Content="open" Style="{StaticResource DefaultButton}">
+                <Button x:Name="ShowOpen" Content="打开" Style="{StaticResource DefaultButton}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <ei:GoToStateAction StateName="OpenState" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button x:Name="ShowSave" Content="save" Style="{StaticResource OpenDocumentsOnly}">
+                <Button x:Name="ShowSave" Content="保存" Style="{StaticResource OpenDocumentsOnly}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <ei:GoToStateAction StateName="SaveState" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button x:Name="PrintDocument" Content="print" Style="{StaticResource OpenDocumentsOnly}" />
-                <Button x:Name="PublishDocument" Content="publish" Style="{StaticResource OpenDocumentsOnly}" Command="{Binding PublishDocumentCommand}" />
+                <Button x:Name="PrintDocument" Content="打印" Style="{StaticResource OpenDocumentsOnly}" />
+                <Button x:Name="PublishDocument" Content="发布" Style="{StaticResource OpenDocumentsOnly}" Command="{Binding PublishDocumentCommand}" />
             </WrapPanel>
             <WrapPanel x:Name="NewItems" Margin="30,0,0,0" Opacity="0.995" VerticalAlignment="Bottom" Height="20" RenderTransformOrigin="0.5,0.5"
                        d:LayoutOverrides="VerticalAlignment, GridBox">
@@ -355,8 +355,8 @@
                         <TranslateTransform />
                     </TransformGroup>
                 </WrapPanel.RenderTransform>
-                <Button AutomationProperties.AutomationId="NewDocument" Content="BLANK PAGE" Command="{Binding NewDocumentCommand}" />
-                <Button AutomationProperties.AutomationId="NewJekyllDocument" Content="JEKYLL PAGE" Command="{Binding NewJekyllDocumentCommand}" />
+                <Button AutomationProperties.AutomationId="NewDocument" Content="空白页" Command="{Binding NewDocumentCommand}" />
+                <Button AutomationProperties.AutomationId="NewJekyllDocument" Content="JEKYLL 页" Command="{Binding NewJekyllDocumentCommand}" />
                 <WrapPanel x:Name="CreateNewPageHook" Margin="0,0,0,0" />
             </WrapPanel>
             <WrapPanel x:Name="SaveItems" Visibility="Collapsed" Opacity="0" Margin="30,0,0,0" VerticalAlignment="Bottom" Height="20"
@@ -376,9 +376,9 @@
                         <TranslateTransform X="-50" />
                     </TransformGroup>
                 </WrapPanel.RenderTransform>
-                <Button AutomationProperties.AutomationId="SaveDocument" Content="SAVE" Command="{Binding SaveDocumentCommand}" />
-                <Button AutomationProperties.AutomationId="SaveAsDocument" Content="SAVE AS" Command="{Binding SaveDocumentAsCommand}" />
-                <Button AutomationProperties.AutomationId="SaveAllDocuments" Content="SAVE ALL" Command="{Binding SaveAllDocumentsCommand}" />
+                <Button AutomationProperties.AutomationId="SaveDocument" Content="保存" Command="{Binding SaveDocumentCommand}" />
+                <Button AutomationProperties.AutomationId="SaveAsDocument" Content="另存为" Command="{Binding SaveDocumentAsCommand}" />
+                <Button AutomationProperties.AutomationId="SaveAllDocuments" Content="全部保存" Command="{Binding SaveAllDocumentsCommand}" />
                 <WrapPanel x:Name="SavePageHook" Margin="0,0,0,0" />
             </WrapPanel>
             <WrapPanel x:Name="OpenItems" Visibility="Collapsed" Opacity="0" Margin="30,0,0,0" VerticalAlignment="Bottom" Height="20"
@@ -398,12 +398,12 @@
                         <TranslateTransform X="-50" />
                     </TransformGroup>
                 </WrapPanel.RenderTransform>
-                <Button AutomationProperties.AutomationId="OpenDocument" Content="OPEN" Command="{Binding OpenDocumentCommand}" />
-                <Button AutomationProperties.AutomationId="OpenFromWeb" Content="OPEN FROM WEB" Command="{Binding OpenFromWebCommand}" />
+                <Button AutomationProperties.AutomationId="OpenDocument" Content="打开" Command="{Binding OpenDocumentCommand}" />
+                <Button AutomationProperties.AutomationId="OpenFromWeb" Content="从网络打开" Command="{Binding OpenFromWebCommand}" />
             </WrapPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Orientation="Horizontal">
                 <ContentControl x:Name="Updater" />
-                <Button Content="SETTINGS" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" AutomationProperties.AutomationId="MarkpadSettings">
+                <Button Content="设置" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" AutomationProperties.AutomationId="MarkpadSettings">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <cm:ActionMessage MethodName="ShowSettings" />
@@ -413,7 +413,7 @@
                 <TextBlock Margin="10,0">
                     <Run Text="|" />
                 </TextBlock>
-                <Button Content="HELP" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Margin="0,0,20,0">
+                <Button Content="帮助" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Margin="0,0,20,0">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <cm:ActionMessage MethodName="ShowHelp" />
@@ -453,7 +453,7 @@
               Visibility="{Binding SearchingWithBar, Mode=TwoWay, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Border Background="#f0f0f0" BorderBrush="#999999" BorderThickness="1" CornerRadius="0" Padding="3,2,3,2" Margin="0">
                 <DockPanel Margin="2">
-                    <Button Content="Replace" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0" ToolTip="Replace">
+                    <Button Content="替代" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0" ToolTip="Replace">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <cm:ActionMessage MethodName="Search">
@@ -462,7 +462,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button Content="Find prev" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0" ToolTip="SHIFT + F3">
+                    <Button Content="查找之前" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0" ToolTip="SHIFT + F3">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <cm:ActionMessage MethodName="Search">
@@ -471,7 +471,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button Content="Find" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0" ToolTip="F3">
+                    <Button Content="查找" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0" ToolTip="F3">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <cm:ActionMessage MethodName="Search">
@@ -575,7 +575,7 @@
 
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" Foreground="White"
                            Visibility="{Binding MDI.ActiveItem, Converter={StaticResource NullToVisibilityConverter}}">
-                    <Run Text="{Binding MDI.ActiveItem.WordCount, Mode=OneWay}" /> WORDS
+                    <Run Text="{Binding MDI.ActiveItem.WordCount, Mode=OneWay}" /> 字
                 </TextBlock>
 
                 <StackPanel Orientation="Horizontal" Margin="20,0,0,0" VerticalAlignment="Center">

@@ -26,7 +26,7 @@ namespace MarkPad
     public class ShellViewModel : Conductor<IScreen>, IShell, IHandle<FileOpenEvent>, IHandle<SettingsCloseEvent>, IHandle<OpenFromWebEvent>, IDoWorkAsyncronously
     {
         const string ShowSettingsState = "ShowSettings";
-        const string NewDocumentDefaultName = "New Document";
+        const string NewDocumentDefaultName = "ÐÂ½¨ÎÄµµ";
         readonly IEventAggregator eventAggregator;
         readonly IDialogService dialogService;
         readonly IOpenDocumentFromWeb openDocumentFromWeb;

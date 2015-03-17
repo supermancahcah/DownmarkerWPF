@@ -56,16 +56,16 @@ namespace MarkPad.DocumentSources.GitHub
 
         public override Task<IMarkpadDocument> Publish()
         {
-            var save = new ButtonExtras(ButtonType.Yes, "Save", "Saves this modified post to your blog");
-            var saveAs = new ButtonExtras(ButtonType.No, "Save As", "Saves this blog post as a local markdown file");
-            var publish = new ButtonExtras(ButtonType.Retry, "Publish As", "Publishes this post to another blog, or as another post");
+            var save = new ButtonExtras(ButtonType.Yes, "保存", "保存博文到你的博客。");
+            var saveAs = new ButtonExtras(ButtonType.No, "另存为", "保存本博客博文为本地 markdown 文件。");
+            var publish = new ButtonExtras(ButtonType.Retry, "发布为", "发布本次博文到另外一个博客，或者发布为另外一个博文。");
 
             var service = new DialogMessageService(null)
             {
                 Icon = DialogMessageIcon.Question,
                 Buttons = DialogMessageButtons.Yes | DialogMessageButtons.No | DialogMessageButtons.Retry | DialogMessageButtons.Cancel,
                 Title = "Markpad",
-                Text = string.Format("{0} has already been published, what do you want to do?", Title),
+                Text = string.Format("{0} 已经发布了，你想做什么？", Title),
                 ButtonExtras = new[] { save, saveAs, publish }
             };
 

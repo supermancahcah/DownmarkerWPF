@@ -106,7 +106,7 @@ namespace MarkPad.Document
         {
             var configuredSource = settings.FontFamily;
             var fontFamily = FontHelpers.TryGetFontFamilyFromStack(configuredSource, "Segoe UI", "Arial");
-            if (fontFamily == null) throw new Exception("Cannot find configured font family or fallback fonts");
+            if (fontFamily == null) throw new Exception("找不到已配置字体或者回滚字体。");
             return fontFamily;
         }
 

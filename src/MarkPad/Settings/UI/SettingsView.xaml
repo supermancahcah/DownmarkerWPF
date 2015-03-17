@@ -22,7 +22,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid  Background="Black">
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="settings" VerticalAlignment="Top" Foreground="White" FontSize="48" Margin="70,-14.668,0,0" FontWeight="Light"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="设置" VerticalAlignment="Top" Foreground="White" FontSize="48" Margin="70,-14.668,0,0" FontWeight="Light"/>
         <Button Content="➔" Style="{StaticResource MetroCircleButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" 
                 Foreground="White" Height="58" RenderTransformOrigin="0.5,0.5" FontSize="40" Margin="-7.625,-8,0,0" Padding="1,-5,1,1" 
                 Clip="M50.333,8 L-1.667,8 L-1.667,59.843 L50.333,59.843 z" IsCancel="true" AutomationProperties.AutomationId="CloseSettings">
@@ -42,7 +42,7 @@
         </Button>
         <TabControl Margin="45,50,0,0" VerticalContentAlignment="Top" 
 				HorizontalContentAlignment="Stretch">
-            <TabItem Header="general">
+            <TabItem Header="一般">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled">
                   <Grid>
                     <Grid.ColumnDefinitions>
@@ -56,7 +56,7 @@
 				            HorizontalContentAlignment="Stretch">
 
               <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,20,0" Width="250">
-                <TextBlock TextWrapping="Wrap" FontSize="26.667" FontWeight="Light" Text="language"/>
+                <TextBlock TextWrapping="Wrap" FontSize="26.667" FontWeight="Light" Text="拼写语言"/>
                 <ComboBox x:Name="Languages" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"  VerticalAlignment="Top" Margin="0,40,0,0">
                   <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -66,8 +66,8 @@
                 </ComboBox>
               </Grid>
               <StackPanel VerticalAlignment="Top" Margin="0,20,50,0">
-                <TextBlock TextWrapping="Wrap" FontSize="26.667" FontWeight="Light" Text="file extensions"/>
-                <TextBlock Text="Set Markpad as default for file extensions:"
+                <TextBlock TextWrapping="Wrap" FontSize="26.667" FontWeight="Light" Text="文件扩展名"/>
+                <TextBlock Text="设置 Markpad 默认打开文件扩展名："
                            Margin="0,5,0,5"/>
                 <ItemsControl ItemsSource="{Binding Extensions}" >
                   <ItemsControl.ItemTemplate>
@@ -78,15 +78,15 @@
                 </ItemsControl>
               </StackPanel>
               <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,20,0" Width="250">
-                <TextBlock TextWrapping="Wrap" FontSize="26.667" FontWeight="Light" Text="features"/>
-                                <Controls:ToggleSwitch Margin="-10,5,0,0" IsChecked="{Binding EnableFloatingToolBar, Mode=TwoWay}" Content="floating toolbar"/>
-                                <Controls:ToggleSwitch Margin="-10,5,0,0" IsChecked="{Binding EnableMarkdownExtra, Mode=TwoWay}" Content="markdown extra"/>
+                <TextBlock TextWrapping="Wrap" FontSize="26.667" FontWeight="Light" Text="特性"/>
+                                <Controls:ToggleSwitch Margin="-10,5,0,0" IsChecked="{Binding EnableFloatingToolBar, Mode=TwoWay}" Content="浮动工具栏"/>
+                                <Controls:ToggleSwitch Margin="-10,5,0,0" IsChecked="{Binding EnableMarkdownExtra, Mode=TwoWay}" Content="markdown 补充"/>
                                 <Grid Margin="0,5,0,0">
                   <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                   </Grid.ColumnDefinitions>
-                  <TextBlock Text="indent "
+                  <TextBlock Text="缩进 "
                              FontFamily="Segoe UI Semibold" FontSize="14.667"/>
                   <ComboBox ItemsSource="{Binding IndentTypes}" SelectedItem="{Binding IndentType}"
                           HorizontalAlignment="Right" Grid.Column="1" AutomationProperties.AutomationId="IndentType">
@@ -107,28 +107,28 @@
                           Grid.Column="1">
               <Grid Margin="0,0,0,0">
                 <StackPanel>
-                  <TextBlock FontSize="26.667" FontWeight="Light" Text="blogs"/>
+                  <TextBlock FontSize="26.667" FontWeight="Light" Text="博客"/>
                   <StackPanel Orientation="Horizontal">
                     <ListBox ItemsSource="{Binding Blogs}" SelectedItem="{Binding CurrentBlog}"
 								             DisplayMemberPath="BlogName"
 								             Height="100" Width="178" Background="{x:Null}" 
                                              BorderBrush="White" BorderThickness="2" />
                     <StackPanel  Margin="5 0 0 0" VerticalAlignment="Top">
-                      <Button x:Name="AddBlog" Style="{DynamicResource SquareButtonStyle}" Content="Add New" Width="70" Height="30" VerticalAlignment="Top">
+                      <Button x:Name="AddBlog" Style="{DynamicResource SquareButtonStyle}" Content="添加新的" Width="70" Height="30" VerticalAlignment="Top">
                         <i:Interaction.Triggers>
                           <i:EventTrigger EventName="Click">
                             <cal:ActionMessage MethodName="AddBlog" />
                           </i:EventTrigger>
                         </i:Interaction.Triggers>
                       </Button>
-                      <Button x:Name="EditBlog" Style="{DynamicResource SquareButtonStyle}" Content="Edit"  Width="70" Height="30" Margin="0 5 0 0" VerticalAlignment="Top">
+                      <Button x:Name="EditBlog" Style="{DynamicResource SquareButtonStyle}" Content="编辑"  Width="70" Height="30" Margin="0 5 0 0" VerticalAlignment="Top">
                         <i:Interaction.Triggers>
                           <i:EventTrigger EventName="Click">
                             <cal:ActionMessage MethodName="EditBlog" />
                           </i:EventTrigger>
                         </i:Interaction.Triggers>
                       </Button>
-                      <Button x:Name="RemoveBlog" Style="{DynamicResource SquareButtonStyle}" Content="Remove"  Width="70" Margin="0 5 0 0" Height="30" VerticalAlignment="Top">
+                      <Button x:Name="RemoveBlog" Style="{DynamicResource SquareButtonStyle}" Content="删除"  Width="70" Margin="0 5 0 0" Height="30" VerticalAlignment="Top">
                         <i:Interaction.Triggers>
                           <i:EventTrigger EventName="Click">
                             <cal:ActionMessage MethodName="RemoveBlog" />
@@ -144,9 +144,9 @@
           </Grid>
         </ScrollViewer>
             </TabItem>
-            <TabItem Header="display">
+            <TabItem Header="显示">
                 <StackPanel Margin="15,0,0,0">
-                    <TextBlock TextWrapping="Wrap" FontSize="26.667" Foreground="White" FontWeight="Light" Text="font"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="26.667" Foreground="White" FontWeight="Light" Text="字体"/>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -159,7 +159,7 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Row="1" Grid.Column="0">
-                            <TextBlock Text="FONT" FontWeight="SemiBold" FontSize="12" />
+                            <TextBlock Text="字体" FontWeight="SemiBold" FontSize="12" />
                             <ListBox ItemsSource="{Binding FontFamilies}" SelectedItem="{Binding SelectedFontFamily}" Height="130" DisplayMemberPath="Source"
                                      Loaded="ScrollToSelection"
                                      Background="#4D4D4D">
@@ -171,7 +171,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Grid.Column="1" Margin="15 0 0 0">
-                            <TextBlock Text="SIZE"  FontWeight="SemiBold" FontSize="12" />
+                            <TextBlock Text="大小"  FontWeight="SemiBold" FontSize="12" />
                             <ComboBox x:Name="FontSizes" ItemsSource="{Binding FontSizes}" SelectedItem="{Binding SelectedFontSize}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
@@ -180,7 +180,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
 
-                            <TextBlock Text="PREVIEW"  FontWeight="SemiBold"  FontSize="12" Margin="0,5,0,0"/>
+                            <TextBlock Text="预览"  FontWeight="SemiBold"  FontSize="12" Margin="0,5,0,0"/>
                             <Border BorderBrush="{x:Null}" Background="{Binding IsColorsInverted, Converter={StaticResource BoolToPreviewBackgroundConverter}}" Height="83">
                                 <TextBlock TextWrapping="Wrap"							   
                                             TextAlignment="Center"
@@ -192,8 +192,8 @@
                             </Border>
                         </StackPanel>
                         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                            <CheckBox Content="Invert Colors" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Bottom"  Margin="10 10 10 10" IsChecked="{Binding IsColorsInverted}" />
-                            <Button Width="75" x:Name="ResetFont" Content="Reset" Style="{DynamicResource SquareButtonStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10 10 10 10">
+                            <CheckBox Content="反转颜色" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Bottom"  Margin="10 10 10 10" IsChecked="{Binding IsColorsInverted}" />
+                            <Button Width="75" x:Name="ResetFont" Content="复位" Style="{DynamicResource SquareButtonStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10 10 10 10">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
                                         <cal:ActionMessage MethodName="ResetFont" />

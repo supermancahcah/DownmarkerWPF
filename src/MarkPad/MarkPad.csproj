@@ -18,7 +18,6 @@
     <RestorePackages>true</RestorePackages>
     <IsWebBootstrapper Condition="$(IsWebBootstrapper) == '' Or $(IsWebBootstrapper) == '*Undefined*'">false</IsWebBootstrapper>
     <PublishUrl Condition="$(PublishUrl) == '' Or $(PublishUrl) == '*Undefined*'">publish\</PublishUrl>
-    <FodyPath>..\packages\Fody.1.17.4.0</FodyPath>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled Condition="$(UpdateEnabled) == '' Or $(UpdateEnabled) == '*Undefined*'">false</UpdateEnabled>
@@ -37,6 +36,7 @@
     <ApplicationVersion Condition="$(ApplicationVersion) == '' Or $(ApplicationVersion) == '*Undefined*'">1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>29024154</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -500,7 +500,9 @@
     <EmbeddedResource Include="Document\SpellCheck\Dictionaries\en_US.dic" />
     <EmbeddedResource Include="Document\SpellCheck\Dictionaries\es_ES.aff" />
     <EmbeddedResource Include="Document\SpellCheck\Dictionaries\es_ES.dic" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <AppDesigner Include="Properties\" />
     <EmbeddedResource Include="Syntax\Markdown.xshd" />
   </ItemGroup>
@@ -596,5 +598,11 @@
 
       copy "$(SolutionDir)packages\NHunspell.1.1.0\native\*" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="Fody.targets" />
+  <Import Project="..\packages\Fody.1.28.1\build\Fody.targets" Condition="Exists('..\packages\Fody.1.28.1\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.1.28.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.28.1\build\Fody.targets'))" />
+  </Target>
 </Project>
